@@ -1,27 +1,84 @@
-Vehicle Detection and Counting
+# 🚗 Vehicle Detection And Counting using OpenCV
 
-This project detects moving vehicles using background subtraction and counts vehicles that cross a horizontal line in the frame.
+This project is a **vehicle counting system** built with **Python** and **OpenCV**. It detects and counts vehicles in real-time from a video file or webcam feed using background subtraction and object tracking techniques.
 
-Files
-- `main.ipynb` - Jupyter notebook with the video-processing loop (updated to include counting logic).
-- `vehicle_counter.py` - Standalone script you can run to process `video.mp4` and show a live count.
-- `requirements.txt` - Python dependencies.
+![Screenshot](screenshot.png)
 
-Quick start
-1. (Optional) Create a virtual environment and activate it.
-2. Install dependencies:
+## 🧠 Features
 
-```powershell
-pip install -r requirements.txt
+- Real-time vehicle detection and tracking  
+- Automatic up/down direction counting  
+- Works with both video files and live webcam feed  
+- Background subtraction using MOG/MOG2  
+- Noise reduction with morphological operations  
+- Adjustable parameters (count line position, object size, etc.)  
+- Displays total, up, and down counts in real-time  
+
+## 🧩 Requirements
+
+- Python 3.8 or later  
+- OpenCV  
+- NumPy  
+
+Install dependencies with:
+```bash
+pip install opencv-python numpy
 ```
 
-3. Run the script:
+## 🚀 Usage
 
-```powershell
-python vehicle_counter.py --video video.mp4
+### From a video file
+```bash
+python vehicle_counter.py --video video.mp4 --count-line-position 300
 ```
 
-Notes and next steps
-- The tracker is a simple centroid-based tracker; for high-accuracy counting consider using a proper multi-object tracker (e.g., SORT) or deep learning based detector.
-- Tweak `min_contour_area` and `line_position` for your camera/view.
-"# -Vehicle-Detection-And-Counting-using-OpenCV" 
+### From a webcam
+```bash
+python vehicle_counter.py --camera
+```
+
+## ⚙️ Arguments
+
+| Argument | Description | Default |
+|-----------|--------------|----------|
+| `--video` | Path to video file | `video.mp4` |
+| `--camera` | Use webcam instead of video file | `False` |
+| `--device` | Camera device index | `0` |
+| `--count-line-position` | Y position of counting line | `2/3 of frame height` |
+| `--min-width-react` | Minimum bounding box width | `80` |
+| `--min-height-react` | Minimum bounding box height | `80` |
+
+## 📊 Output Example
+
+The system displays the processed video with bounding boxes, a counting line, and live vehicle counts:
+- **Blue** → Vehicles moving up  
+- **Orange** → Vehicles moving down  
+- **Magenta** → Default detection state  
+
+**Example output display:**  
+```
+Up: 3
+Down: 5
+Total: 8
+```
+
+## 🏁 Project Structure
+
+```
+├── vehicle_counter.py
+├── video.mp4
+├── screenshot.png
+└── README.md
+```
+
+## 💡 Author
+
+👤 **Shariful**  
+🔗 [GitHub Profile](https://github.com/pythonicshariful)  
+
+## 🏷️ Tags
+
+`python` `opencv` `computer-vision` `vehicle-detection` `object-tracking` `traffic-analysis` `background-subtraction` `video-processing` `ai` `image-processing`
+
+---
+> 📸 Repository: [pythonicshariful/-Vehicle-Detection-And-Counting-using-OpenCV](https://github.com/pythonicshariful/-Vehicle-Detection-And-Counting-using-OpenCV)
